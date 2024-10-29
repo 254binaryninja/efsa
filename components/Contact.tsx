@@ -1,8 +1,16 @@
+'use client'
+
 import React from 'react';
 
-function Contact() {
+interface contactProps {
+    contactRef?: React.RefObject<HTMLElement|null>;
+}
+
+function Contact({contactRef}:contactProps) {
     return (
-        <div></div>
+        <section ref={contactRef}>
+
+        </section>
     );
 }
 

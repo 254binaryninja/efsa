@@ -1,6 +1,6 @@
-'use server'
+'use client'
 
-import React from 'react';
+import React,{useRef} from 'react';
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import Features from '@/components/Features'
@@ -9,13 +9,19 @@ import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 
 function Home() {
+
+    const contactRef = useRef<HTMLElement>(null)
+
     return (
         <div className='flex flex-col'>
-          <Header/>
+          <Header
+           contactRef={contactRef}
+          />
           <Hero/>
           <Features/>
           <Bottom/>
-          <Contact/>
+          <Contact contactRef={contactRef}
+          />
           <Footer/>
         </div>
     );
