@@ -76,3 +76,21 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .ring-remove {
+    @apply focus-visible:ring-0 focus-visible:ring-offset-0;
+  }
+  .glassmorphism{
+    @apply bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100
+  }
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+  .flex-center{
+    @apply flex justify-center items-center;
+  }
+  .text-color{
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-600 via-gray-500 animate-gradient-x
+  }
+}

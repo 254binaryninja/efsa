@@ -1,18 +1,10 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import {M_PLUS_Rounded_1c} from 'next/font/google'
 import "./globals.css";
 
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+const m_plus_rounded_1c = M_PLUS_Rounded_1c({weight:'500',subsets:['latin']})
+
 
 export const metadata: Metadata = {
   title: "EFSA-KU | Join the Waitlist for Economic Frontiers Students Association - Kenyatta University",
@@ -27,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${m_plus_rounded_1c.className} bg-gray-100 antialiased`}
       >
         {children}
       </body>
