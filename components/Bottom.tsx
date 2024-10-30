@@ -4,7 +4,9 @@ import React from 'react';
 
 function Bottom() {
     return (
-        <div></div>
+        <section className='flex flex-row gap-10 max-sm:gap-5 '>
+
+        </section>
     );
 }
 
