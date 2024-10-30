@@ -2,7 +2,9 @@ import React from 'react';
 
 function Features() {
     return (
-        <div></div>
+       <section className=''>
+
+       </section>
     );
 }
 

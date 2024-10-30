@@ -46,7 +46,7 @@ function Hero() {
                   <Button className='p-5'>
                       Chat with Cjay
                   </Button>
-                    <p className="text-gray-400 px-1 font-semibold text-xl">Coming soon...</p>
+                    <p className="text-gray-400 px-1 font-semibold text-xl hover:cursor-wait">Coming soon...</p>
                 </div>
             </div>
         </section>

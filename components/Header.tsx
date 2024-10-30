@@ -35,7 +35,7 @@ function Header({contactRef}:ContactProps) {
             "bg-transparent z-10 left-0 top-0 right-0":!isScrolled
         })}>
           <div className='p-5 m-3'>
-            <h1 className='text-4xl max-sm:text-2xl font-bold text-color '>Economics Frontiers Students Association</h1>
+            <h1 className='text-4xl max-sm:text-2xl font-extrabold text-color '>Economics Frontiers Students Association</h1>
           </div>
 
             <Button className='p-4' onClick={()=>handleButtonClick()}>
