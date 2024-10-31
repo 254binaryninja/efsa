@@ -18,7 +18,9 @@ function Home() {
           />
           <Hero/>
           <Features/>
-          <Bottom/>
+          <Bottom
+              contactRef={contactRef}
+          />
           <Footer/>
         </div>
     );

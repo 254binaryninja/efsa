@@ -12,15 +12,12 @@ import {
 import CustomInput from './CustomInput';
 import { contactFormShema } from "@/types/utils";
 import { Loader2 } from 'lucide-react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import {addToWaitlist} from "@/actions/user.actions";
 import { ToastAction } from "@/components/ui/toast"
 
-interface contactProps {
-    contactRef?: React.RefObject<HTMLElement|null>;
-}
 
-function Contact({contactRef}:contactProps) {
+function Contact() {
 
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
@@ -61,14 +58,14 @@ function Contact({contactRef}:contactProps) {
               variant: "destructive",
               title: "Uh oh! Something went wrong.",
               description: "Please try again later",
-              action: <ToastAction onClick={()=>router.reload()} altText="Refresh">Try again</ToastAction>,
+              action: <ToastAction  altText="Refresh">Try again</ToastAction>,
           })
           setIsLoading(false)
       }
     }
 
     return (
-        <section ref={contactRef} className='flex flex-col gap-4 max-sm:gap-2 bg-gray-100 hover:z-10 rounded-lg p-5'>
+        <section  className='flex flex-col gap-4 max-sm:gap-2 bg-gray-100 hover:z-10 rounded-lg p-5'>
           <Form {...form}>
               <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-8 max-sm:space-y-4">
                   <div className='flex flex-col gap-4 max-sm:gap-2'>
