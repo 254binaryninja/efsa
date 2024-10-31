@@ -93,4 +93,70 @@ body {
   .text-color{
     @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-blue-600 via-gray-500 animate-gradient-x
   }
+/*  Form*/
+
+  .form-item {
+    @apply flex flex-col gap-1.5;
+  }
+
+  .form-label {
+    @apply text-14 w-full max-w-[280px] font-medium text-gray-700;
+  }
+
+  .form-message {
+    @apply text-12 text-red-500;
+  }
+
+  .form-btn {
+    @apply text-16 rounded-lg border border-blue-500 bg-blue-500 font-semibold text-white shadow-form;
+  }
+
+  .form-link {
+    @apply text-14 cursor-pointer font-medium text-blue-500;
+  }
+/*  Text*/
+
+  .header-2 {
+    @apply text-18 font-semibold text-gray-900;
+  }
+
+  .text-10 {
+    @apply text-[10px] leading-[14px];
+  }
+
+  .text-12 {
+    @apply text-[12px] leading-[16px];
+  }
+
+  .text-14 {
+    @apply text-[14px] leading-[20px];
+  }
+
+  .text-16 {
+    @apply text-[16px] leading-[24px];
+  }
+
+  .text-18 {
+    @apply text-[18px] leading-[22px];
+  }
+
+  .text-20 {
+    @apply text-[20px] leading-[24px];
+  }
+
+  .text-24 {
+    @apply text-[24px] leading-[30px];
+  }
+
+  .text-26 {
+    @apply text-[26px] leading-[32px];
+  }
+
+  .text-30 {
+    @apply text-[30px] leading-[38px];
+  }
+
+  .text-36 {
+    @apply text-[36px] leading-[44px];
+  }
 }
