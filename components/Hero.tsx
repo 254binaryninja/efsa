@@ -1,10 +1,11 @@
 'use client'
 
-import React from 'react';
+import React,{useState} from 'react';
 import Image from 'next/image'
 import {useGSAP} from "@gsap/react"
 import gsap from 'gsap'
 import {Button} from '@/components/ui/button'
+import ChatBot from "@/components/chatbot/chatBot";
 
 function Hero() {
     useGSAP(()=>{
@@ -18,6 +19,8 @@ function Hero() {
             stagger:0.5,
         })
     },[])
+
+    const[isOpen,setOpen] = useState<boolean>(false)
 
     return (
         <section className='flex flex-col  gap-2'>
@@ -43,11 +46,13 @@ function Hero() {
                         className="absolute bottom-0 w-full h-1/3 bg-gradient-to-t from-white/70 via-white/60 to-transparent"/>
                 </div>
                 <div id="text" className='relative flex items-center justify-center py-3 flex-row gap-1'>
-                  <Button className='p-5'>
+                  <Button className='p-5' onClick={()=>setOpen(true)}>
                       Chat with Cjay
                   </Button>
                     <p className="text-gray-400 px-1 font-semibold text-xl hover:cursor-wait">Coming soon...</p>
                 </div>
+                <ChatBot isOpen={isOpen}
+                            onClose={()=>setOpen(false)}/>
             </div>
         </section>
     );
