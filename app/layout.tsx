@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { M_PLUS_Rounded_1c } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 import "./globals.css";
 import React from 'react';
 import { ReactQueryClientProvider } from '@/components/ReactQueryClientProvider';
 import { Toaster } from "@/components/ui/toaster";
 
-const m_plus_rounded_1c = M_PLUS_Rounded_1c({ weight: '500', subsets: ['latin'] });
+const m_plus_rounded_1c = Poppins({ weight: '500', subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: "EFSA-KU | Join the Waitlist for Economic Frontiers Students Association - Kenyatta University",
