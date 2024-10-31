@@ -5,7 +5,6 @@ import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import Features from '@/components/Features'
 import Bottom from '@/components/Bottom'
-import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 
 function Home() {
@@ -20,8 +19,6 @@ function Home() {
           <Hero/>
           <Features/>
           <Bottom/>
-          <Contact contactRef={contactRef}
-          />
           <Footer/>
         </div>
     );
