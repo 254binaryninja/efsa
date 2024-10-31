@@ -20,39 +20,43 @@ const chatModel = new ChatGoogleGenerativeAI({
 // Initialize embedding model
 const embeddingModel = genAI.getGenerativeModel({ model: "text-embedding-004" });
 
+// Conversation history
+const convHistory: { question: string; response: string }[] = [];
+
 // Define prompt templates
 const standaloneQuestionPrompt = PromptTemplate.fromTemplate(`
     Given a question about economics, make it specific, clear, and provide any useful additional context.
     Question: {question}
-    Detailed Question:`
-);
+    Detailed Question:
+`);
 
 const qaPrompt = PromptTemplate.fromTemplate(`
- You are an AI assistant named Cjay specifically dedicated to supporting members of the Economic Frontiers Students Association - Kenyatta University (EFSA-KU). You must ONLY respond to questions that are directly related to:
-    1. EFSA-KU activities, events, or initiatives
-    2. EFSA-KU membership matters
-    3. Economics studies at Kenyatta University
-    4. Career development specifically for EFSA-KU members
-    5. Academic support for economics students at Kenyatta University
+    You are an AI assistant named Cjay specifically dedicated to supporting members of the Economic Frontiers Students Association - Kenyatta University (EFSA-KU).
     
-    If the question does not explicitly relate to EFSA-KU or economics at Kenyatta University, respond with:
-    "I apologize, but I can only assist with questions directly related to EFSA-KU and economics studies at Kenyatta University. Please rephrase your question to focus on EFSA-specific matters or economics at KU."
+    Previous Conversation:
+    {conversation}
     
-    Context:
+    Current Context:
     {context}
-    
-    For valid EFSA-related questions, engage with the student in a friendly and insightful way, drawing on the context above to support learning, career development, and holistic growth in economics at Kenyatta University.
     
     Question: {question}
     
     Instructions for response:
-    1. First, evaluate if the question is EFSA-KU related
-    2. If not EFSA-related, provide the standard response above
-    3. If EFSA-related, provide a detailed, helpful answer using the context
-    4. Ensure the response is friendly, insightful, and supportive of the student's learning and career development
-    5. If you feel the student needs more info refer them to Ivy Wangeci whose phone number is 0741265111
+    1. First, evaluate if the question is EFSA-KU related.
+    2. If not EFSA-related, provide the standard response: "I apologize, but I can only assist with questions directly related to EFSA-KU and economics studies at Kenyatta University."
+    3. If EFSA-related, provide a detailed, helpful answer using the context.
+    4. Ensure the response is friendly, insightful, and supportive of the student's learning and career development.
+    5. If the student needs more info, refer them to Ivy Wangeci at 0741265111.
     
-    Response:`);
+    Response:
+`);
+
+// Function to format conversation history
+function formatConversationHistory(history: { question: string; response: string }[]): string {
+    return history
+        .map(entry => `User: ${entry.question}\nAI: ${entry.response}`)
+        .join("\n\n");
+}
 
 // Function to query documents from Supabase
 async function queryDocs(embeddings: number[]) {
@@ -89,15 +93,16 @@ const embeddingChain = async (input: string) => {
 // Final QA chain
 const qaChain = RunnableSequence.from([
     {
-        question: (input: { question: string; context: string }) => input.question,
-        context: (input: { question: string; context: string }) => input.context,
+        question: (input: { question: string; context: string; conversation: string }) => input.question,
+        context: (input: { question: string; context: string; conversation: string }) => input.context,
+        conversation: (input: { question: string; context: string; conversation: string }) => input.conversation,
     },
     qaPrompt,
     chatModel,
     new StringOutputParser(),
 ]);
 
-// Main function to generate response
+// Main function to generate response with conversation history
 async function generateResponse(userQuestion: string) {
     try {
         // 1. Generate standalone question
@@ -110,11 +115,18 @@ async function generateResponse(userQuestion: string) {
         const contextDocs = await queryDocs(embeddings);
         const context = contextDocs.join("\n\n");
 
-        // 4. Generate final response
+        // 4. Format conversation history
+        const conversation = formatConversationHistory(convHistory);
+
+        // 5. Generate final response
         const response = await qaChain.invoke({
             question: userQuestion,
             context: context,
+            conversation: conversation,
         });
+
+        // 6. Update conversation history
+        convHistory.push({ question: userQuestion, response });
 
         return response;
     } catch (error) {
@@ -123,11 +135,11 @@ async function generateResponse(userQuestion: string) {
     }
 }
 
-//usage
+// Usage function to handle incoming questions
 export async function handleQuestion(userQuestion: string) {
     try {
         const response = await generateResponse(userQuestion);
-        console.log(response)
+        console.log(response);
         return { success: true, response };
     } catch (error) {
         console.error("Error handling question:", error);
@@ -137,4 +149,3 @@ export async function handleQuestion(userQuestion: string) {
         };
     }
 }
-
