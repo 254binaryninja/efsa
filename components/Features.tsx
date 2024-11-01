@@ -43,6 +43,11 @@ const Features: React.FC = () => {
             icon: <Network className="w-6 h-6 text-blue-600" />
         },
         {
+            title: "Outreach Programs",
+            description: "Get involved in CSR initiatives an avenue to foster social awareness, community involvement and leadership skills among members as part of preparing all rounded socially responsible leaders.",
+            icon: <Network className="w-6 h-6 text-blue-600" />
+        },
+        {
             title: "Entrepreneurship Incubation",
             description: "Support and resources for aspiring student entrepreneurs to develop their business ideas.",
             icon: <Briefcase className="w-6 h-6 text-blue-600" />

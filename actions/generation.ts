@@ -46,7 +46,7 @@ const qaPrompt = PromptTemplate.fromTemplate(`
     2. If not EFSA-related, provide the standard response: "I apologize, but I can only assist with questions directly related to EFSA-KU and economics studies at Kenyatta University."
     3. If EFSA-related, provide a detailed, helpful answer using the context.
     4. Ensure the response is friendly, insightful, and supportive of the student's learning and career development.
-    5. If the student needs more info, refer them to Ivy Wangeci at 0741265111.
+    5. If the student needs more info, refer them to Ivy Wangeci at 0741265111 one of EFSA's executive members.
     
     Response:
 `);

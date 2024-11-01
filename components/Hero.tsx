@@ -23,10 +23,10 @@ function Hero() {
     const[isOpen,setOpen] = useState<boolean>(false)
 
     return (
-        <section className='flex flex-col  gap-2'>
+        <section className='flex flex-col bg-gradient-to-r from-white to-gray-400'>
             <div className='p-20 max-sm:p-7'>
-                <p id="text"  className='relative flex items-center justify-center font-extrabold text-4xl max-sm:text-2xl my-3 text-black px-5 '>Spearheading</p>
-                <p id="text"  className='relative flex items-center justify-center font-extrabold text-4xl max-sm:text-2xl my-3 text-black px-5 '>holistic
+                <p id="text"  className='relative flex items-center justify-center font-extrabold text-6xl max-sm:text-2xl my-3 text-blue-800 px-5 '>Spearheading</p>
+                <p id="text"  className='relative flex items-center justify-center font-extrabold text-6xl max-sm:text-2xl my-3 text-blue-800 px-5 '>holistic
                     transformation</p>
                 <p id="text"  className='relative flex items-center justify-center font-medium text-xl text-black px-5 '>Our mission is to
                     empower members with skills, knowledge, and networks essential for success in economics, fostering holistic

@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Poppins } from 'next/font/google';
+import { M_PLUS_Rounded_1c } from 'next/font/google';
 import "./globals.css";
 import React from 'react';
 import { ReactQueryClientProvider } from '@/components/ReactQueryClientProvider';
 import { Toaster } from "@/components/ui/toaster";
 
-const m_plus_rounded_1c = Poppins({ weight: '500', subsets: ['latin'] });
+const font = M_PLUS_Rounded_1c({ weight:"700", subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: "EFSA-KU | Join the Waitlist for Economic Frontiers Students Association - Kenyatta University",
@@ -21,7 +21,7 @@ export default function RootLayout({
       <ReactQueryClientProvider>
         <html lang="en">
         <body
-            className={`${m_plus_rounded_1c.className} bg-gray-100 antialiased`}
+            className={`${font.className} bg-gray-100 antialiased`}
         >
         <main>{children}</main>
         <Toaster />

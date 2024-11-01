@@ -91,7 +91,7 @@ body {
     @apply flex justify-center items-center;
   }
   .text-color{
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-blue-600 via-gray-500 animate-gradient-x
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-800 via-amber-200 animate-gradient-x
   }
 /*  Form*/
 
