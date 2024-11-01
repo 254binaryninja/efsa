@@ -12,14 +12,13 @@ import {
 import CustomInput from './CustomInput';
 import { contactFormShema } from "@/types/utils";
 import { Loader2 } from 'lucide-react';
-import { useRouter } from 'next/navigation';
 import {addToWaitlist} from "@/actions/user.actions";
 import { ToastAction } from "@/components/ui/toast"
 
 
 function Contact() {
 
-    const router = useRouter();
+
     const [isLoading, setIsLoading] = useState(false);
     const {toast} = useToast()
 

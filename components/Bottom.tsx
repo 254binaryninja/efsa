@@ -35,7 +35,7 @@ function Bottom({ contactRef }: ContactProps) {
                         </h1>
 
                         <p className="text-lg text-gray-600 leading-relaxed">
-                            Have any questions? We're here to help! Reach out to us and become part of our growing community.
+                            Have any questions? We{"'"}re here to help! Reach out to us and become part of our growing community.
                         </p>
 
                         <div className="mt-8 flex items-center text-blue-600 hover:text-blue-700 transition-colors group cursor-pointer">
