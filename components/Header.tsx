@@ -36,7 +36,7 @@ function Header({contactRef}:ContactProps) {
             "bg-transparent z-10 left-0 top-0 right-0":!isScrolled
         })}>
           <div className='flex flex-row gap-2 p-5 max-sm:p-0 max-sm:m-0  m-3'>
-              <Image src='/img/logo.png' alt='Efsa-KU logo' width={90} height={60}/>
+              <Image src='/img/logo.png' alt='Efsa-KU logo' width={170} height={170}/>
             <h1 className='text-4xl max-sm:text-2xl py-10 font-extrabold text-color '>Economics Frontiers Students Association</h1>
           </div>
 
