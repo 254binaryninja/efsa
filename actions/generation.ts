@@ -62,8 +62,8 @@ function formatConversationHistory(history: { question: string; response: string
 async function queryDocs(embeddings: number[]) {
     const { data, error } = await supabaseClient.rpc('match_docs', {
         query_embedding: embeddings,
-        match_threshold: 0.5,
-        match_count: 2,
+        match_threshold: 0.7,
+        match_count: 3,
     });
 
     if (error) {
