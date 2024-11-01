@@ -57,10 +57,10 @@ const ChatBot = ({ isOpen, onClose }: ModalProps) => {
         const end = inputRef.current.selectionEnd;
         const text = userInput;
 
-        const selectedText = text.substring(start, end);
-        const newText = text.substring(0, start) +
+        const selectedText = text.substring(start as number, end as number);
+        const newText = text.substring(0, start as number) +
             format.prefix + selectedText + format.suffix +
-            text.substring(end);
+            text.substring(end as number);
 
         setUserInput(newText);
 
@@ -68,8 +68,8 @@ const ChatBot = ({ isOpen, onClose }: ModalProps) => {
         setTimeout(() => {
             inputRef.current?.focus();
             inputRef.current?.setSelectionRange(
-                start + format.prefix.length,
-                end + format.prefix.length
+                start as number + format.prefix.length,
+                end as number + format.prefix.length
             );
         }, 0);
     };
@@ -93,9 +93,10 @@ const ChatBot = ({ isOpen, onClose }: ModalProps) => {
             const response = await handleQuestion(userInput);
 
             if (response.success) {
+
                 const botMessage: Message = {
                     role: 'bot',
-                    content: response.response,
+                    content: response.response!,
                     timestamp: new Date()
                 };
                 setMessages(prev => [...prev, botMessage]);
@@ -108,6 +109,7 @@ const ChatBot = ({ isOpen, onClose }: ModalProps) => {
                 content: "I apologize, but I'm having trouble processing your request. Please try again.",
                 timestamp: new Date()
             };
+            console.log(error)
             setMessages(prev => [...prev, errorMessage]);
         } finally {
             setLoading(false);
@@ -165,8 +167,11 @@ const ChatBot = ({ isOpen, onClose }: ModalProps) => {
                                         <ReactMarkdown
                                             className="prose dark:prose-invert max-w-none"
                                             components={{
+                                                // eslint-disable-next-line @typescript-eslint/no-unused-vars
                                                 p: ({node, ...props}) => <p className="m-0" {...props} />,
+                                                // eslint-disable-next-line @typescript-eslint/no-unused-vars
                                                 a: ({node, ...props}) => <a className="text-blue-400 hover:underline" {...props} />,
+                                                // eslint-disable-next-line @typescript-eslint/no-unused-vars
                                                 code: ({node, ...props}) => <code className="bg-gray-800 dark:bg-gray-700 rounded px-1" {...props} />
                                             }}
                                         >

@@ -10,6 +10,7 @@ import { contactFormShema } from "@/types/utils";
 import { Control, FieldPath } from "react-hook-form"
 import { z } from "zod"
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const formSchema = contactFormShema()
 
 interface CustomInput {

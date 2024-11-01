@@ -45,7 +45,6 @@ async function saveHandbook (filePath:string) {
     for(const chunk of output) {
       if(chunk && chunk.pageContent) {
           console.log("creating embedding for chunk ",chunk)
-          // @ts-ignore
           const result = await model.embedContent([chunk.pageContent])
           embeddingData.push({content:chunk.pageContent,embedding:result.embedding.values})
       }
