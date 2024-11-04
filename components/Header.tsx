@@ -40,7 +40,7 @@ function Header({contactRef}:ContactProps) {
             <h1 className='text-4xl max-sm:text-2xl py-10 font-extrabold text-color '>Economics Frontiers Students Association</h1>
           </div>
 
-            <Button className='p-4' onClick={()=>handleButtonClick()}>
+            <Button className='p-4 max-sm:p-1' onClick={()=>handleButtonClick()}>
                 Join Waitlist
             </Button>
         </nav>
