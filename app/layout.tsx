@@ -21,7 +21,7 @@ export default function RootLayout({
       <ReactQueryClientProvider>
         <html lang="en">
         <body
-            className={`${font.className} bg-gray-100 p-3  antialiased`}
+            className={`${font.className} bg-gray-100`}
         >
         <main>{children}</main>
         <Toaster />
