@@ -64,7 +64,7 @@ function Contact() {
     }
 
     return (
-        <section  className='flex flex-col gap-4 max-sm:gap-2 bg-gray-100 hover:z-10 rounded-lg p-5'>
+        <section  className='flex flex-col gap-4 max-sm:gap-2  hover:z-10 rounded-lg p-5'>
           <Form {...form}>
               <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-8 max-sm:space-y-4">
                   <div className='flex flex-col gap-4 max-sm:gap-2'>
