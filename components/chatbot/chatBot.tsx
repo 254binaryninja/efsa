@@ -126,7 +126,7 @@ const ChatBot = ({ isOpen, onClose }: ModalProps) => {
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
-            <DialogContent className="flex h-[500px] w-full max-w-[700px] flex-col max-sm:max-w-[500px] rounded-md gap-0 p-0 bg-white dark:bg-gray-950">
+            <DialogContent className="flex h-[500px] w-full max-w-[700px] flex-col max-sm:max-w-[400px] rounded-md gap-0 p-0 bg-white dark:bg-gray-950">
                 <DialogHeader className="px-6 py-4 border-b">
                     <DialogTitle className="flex items-center gap-2">
                         <Bot className="w-5 h-5 text-blue-500" />
